@@ -20,9 +20,9 @@ RUN chmod +x /bin/docker
 ADD ./config /config/
 ONBUILD ADD ./config /config/
 
-ADD ./start/start /bin/start
-ADD ./check-http/check-http /bin/check-http
-ADD ./check-cmd/check-cmd /bin/check-cmd
+ADD ./start /bin/start
+ADD ./check-http /bin/check-http
+ADD ./check-cmd /bin/check-cmd
 
 RUN chmod +x /bin/start
 
