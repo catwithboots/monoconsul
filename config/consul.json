@@ -7,6 +7,5 @@
                 "dns": 53
         },
         "recursor": "8.8.8.8",
-        "disable_update_check": true,
-        "start_join": ["192.168.59.103"]
+        "disable_update_check": true
 }

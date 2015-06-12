@@ -1,4 +1,10 @@
 #!/bin/bash
 
+if [ -z "$joinip"]; then
+	join_ip="$joinip"
+else
+	join_ip="1.1.1.1"
+fi
+
 set -eo pipefail
-/bin/consul agent -config-dir=/config
+/bin/consul agent -config-dir=/config -join=$join_ip
