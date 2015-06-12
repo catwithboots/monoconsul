@@ -1,4 +1,4 @@
-﻿FROM cihatgenc/monocomplete
+FROM cihatgenc/monocomplete
 MAINTAINER Cihat Genc <cihat@catwithboots.com>
 
 # based on dockerfile by Jeff Lindsay <progrium@gmail.com>
