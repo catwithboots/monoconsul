@@ -17,7 +17,6 @@ RUN chmod +x /bin/docker
 RUN mkdir -p /var/log/supervisor
 
 ADD ./config /config/
-ONBUILD ADD ./config /config/
 
 ADD ./consulagentclient /bin/consulagentclient
 ADD ./check-http /bin/check-http
