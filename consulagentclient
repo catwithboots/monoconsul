@@ -1,0 +1,26 @@
+#! /bin/bash
+
+# Check joinip
+if [ -z "$joinip" ]; then
+        echo "no joinip provided, will not be able to join a Consul cluster" 
+else
+        join_ip="-join=$joinip"
+        echo $join_ip
+fi
+# Check app name
+if [ -z "$app" ]; then
+        echo "no app name provided, will use $HOSTNAME as nodename" 
+else
+        nodename="-node=$app-$HOSTNAME"
+        echo $nodename
+fi
+
+# Check dc
+if [ -z "$dc" ]; then
+        echo "no datacenter provided, default will be used"
+else
+        datacenter="-dc $dc"
+        echo $datacenter
+fi
+
+/bin/consul agent -config-dir=/config $join_ip $nodename $datacenter
