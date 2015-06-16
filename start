@@ -23,4 +23,4 @@ else
 fi
 
 set -eo pipefail
-/bin/consul agent -config-dir=/config $join_ip $nodename $datacenter
+/bin/consul agent -config-dir=/config $join_ip $nodename $datacenter &
