@@ -17,11 +17,12 @@ RUN chmod +x /bin/docker
 ADD ./config /config/
 ONBUILD ADD ./config /config/
 
-ADD ./start /bin/start
+ADD ./consulagent /etc/init.d/consulagent
 ADD ./check-http /bin/check-http
 ADD ./check-cmd /bin/check-cmd
 
-RUN chmod +x /bin/start
+RUN chmod +x /etc/init.d/consulagent
+RUN update-rd.d consulagent defaults
 
 EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 8500 53 53/udp
 VOLUME ["/data"]

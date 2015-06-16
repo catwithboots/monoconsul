@@ -22,5 +22,22 @@ else
 	echo $datacenter
 fi
 
-set -eo pipefail
-/bin/consul agent -config-dir=/config $join_ip $nodename $datacenter &
+case "$1" in
+  start)
+    echo "Starting consul agent "
+    
+    set -eo pipefail
+    /bin/consul agent -config-dir=/config $join_ip $nodename $datacenter 
+
+    ;;
+  stop)
+    echo "Stopping consul agent"
+    
+    ;;
+  *)
+    echo "Usage: /etc/init.d/start {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
