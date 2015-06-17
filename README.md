@@ -90,9 +90,9 @@ What is this Dockerfile doing (i'll only get into the interesting stuff)?
 
 **FROM cihatgenc/monoconsul** - It is using the base image cihatgenc/monoconsul.
 
-**ADD ./hortlak.conf /etc/supervisor/conf.d/hortlak.conf** - Here we add the supervisor config file for our application called hortlak.conf into the image during build. As mentioned before, since we are running (at least) 2 processes within our container (1 = Consul Agent Client, 2 = Our application called Hortlak), we will manage these with [supervisord](http://supervisord.org/introduction.html). The consul agent client part is already covered in the cihatgenc/monoconsul image. So the only thing need to do is add your application to [supervisord](http://supervisord.org/introduction.html) and it will also be automatically managed.
+**ADD ./hortlak.conf /etc/supervisor/conf.d/hortlak.conf** - Here we add the supervisor config file for our application called hortlak.conf into the image during build. As mentioned before, since we are running (at least) 2 processes within our container (1 = Consul Agent Client, 2 = Our application called Hortlak), we will manage these with [supervisord](http://supervisord.org/introduction.html). The consul agent client part is already covered in the cihatgenc/monoconsul image. The only thing need to do is adding your application to [supervisord](http://supervisord.org/introduction.html) and it will also be automatically managed.
 
-Here is how my hortlak.conf file contains:
+Here is what my hortlak.conf file contains:
 
 **hortlak.conf**
 
@@ -130,5 +130,4 @@ Example:
 
 All the parameters of the command were already explained, only addition is the -p 80:9000 which means I'm binding my docker machine port 80 to the container port 9000.
 
-
-docker run -i -e "app=hortlak" -e "joinip=192.168.59.103" -e "dc=dc1" --name blaat cihatgenc/monoconsul
+That's it...
