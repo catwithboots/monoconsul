@@ -29,5 +29,8 @@ EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 8500 53 53/udp
 VOLUME ["/data"]
 
 ENV SHELL /bin/bash
+ENV joinip 8.8.8.8
+ENV app monoconsul
+ENV dc DC1
 
 CMD []
